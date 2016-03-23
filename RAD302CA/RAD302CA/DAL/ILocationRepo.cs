@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace RAD302CA.DAL
 {
-    public interface ICoordRepo:IDisposable
+    public interface ILocationRepo:IDisposable
     {
-        List<Coord> GetByID(int id);
+        List<Location> GetAll();
     }
 }

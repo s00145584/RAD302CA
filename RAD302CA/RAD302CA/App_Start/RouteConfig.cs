@@ -16,7 +16,7 @@ namespace RAD302CA
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Coords", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Locations", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

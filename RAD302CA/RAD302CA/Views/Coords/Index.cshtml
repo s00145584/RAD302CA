@@ -6,10 +6,11 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div id="pano">
+
+</div>
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Latitude)
@@ -48,4 +49,21 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+
+<script>
+    function loadded() {
+        var test = @Html.Raw(Json.Encode(ViewBag.coords));
+        //alert(test);
+
+        var pano = document.getElementById("pano");
+        pano.setAttribute("style", "height:475px;");
+        var coor = new google.maps.LatLng(51.4921451, -0.1929781);
+        var view = {position: coor,pov: {heading: 279,pitch: -5,}};
+        new google.maps.StreetViewPanorama(document.getElementById("pano"), view);
+    }
+
+    $(document).ready(loadded);
+</script>
+

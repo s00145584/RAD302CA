@@ -11,19 +11,19 @@ using RAD302CA.DAL;
 
 namespace RAD302CA.Controllers
 {
-    public class CoordsController : Controller
+    public class LocationsController : Controller
     {
-        private ICoordRepo repo;
-        public CoordsController()
+        private ILocationRepo repo;
+        public LocationsController()
         {
-            repo = new CoordRepo(new CoordsContext());
+            repo = new LocationRepo(new CoordsContext());
         }
-        // GET: Coords
-        public ActionResult Index(int id)
+        // GET: Locations
+        public ActionResult Index()
         {
-            ViewBag.coords=repo.GetByID(id);
-            return View(repo.GetByID(id));
+            return View(repo.GetAll());
         }
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

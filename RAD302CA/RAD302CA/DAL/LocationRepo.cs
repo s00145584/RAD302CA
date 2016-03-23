@@ -1,16 +1,15 @@
-﻿using System;
+﻿using RAD302CA.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using RAD302CA.Models;
-using System.Data.Entity;
 
 namespace RAD302CA.DAL
 {
-    public class CoordRepo : ICoordRepo
+    public class LocationRepo:ILocationRepo
     {
         public CoordsContext context;
-        public CoordRepo(CoordsContext context)
+        public LocationRepo(CoordsContext context)
         {
             this.context = context;
         }
@@ -19,9 +18,9 @@ namespace RAD302CA.DAL
             context.Dispose();
         }
 
-        public List<Coord> GetByID(int id)
+        public List<Location> GetAll()
         {
-            return (context.Coords.Where(lid => lid.LocationID == id)).ToList();
+            return context.Locations.ToList();
         }
     }
 }
