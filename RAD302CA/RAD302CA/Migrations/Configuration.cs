@@ -16,6 +16,8 @@ namespace RAD302CA.Migrations
 
         protected override void Seed(RAD302CA.Models.CoordsContext context)
         {
+            //Old seeding data before change from lat/Long to PanoramaID
+
             //List<Coord> coords = new List<Coord>()
             //{
             //    new Coord() {Latitude=51.4921374,Longitude=-0.1928784,Heading=290,Pitch=75,LocationID=1 },

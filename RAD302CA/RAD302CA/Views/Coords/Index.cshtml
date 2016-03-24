@@ -54,14 +54,70 @@
 
 <script>
     function loadded() {
-        var test = @Html.Raw(Json.Encode(ViewBag.coords));
+        @*var test = @Html.Raw(Json.Encode(ViewBag.coords));*@
         //alert(test);
 
-        var pano = document.getElementById("pano");
-        pano.setAttribute("style", "height:475px;");
-        var coor = new google.maps.LatLng(51.4921451, -0.1929781);
-        var view = {position: coor,pov: {heading: 279,pitch: -5,}};
-        new google.maps.StreetViewPanorama(document.getElementById("pano"), view);
+        //var pano;
+        //pano = new google.maps.StreetViewPanorama(
+        //    document.getElementById('pano'),
+        //    {
+        //        position: {lat: 51.4921451, lng: -0.1929781},
+        //        pov: {heading: 279, pitch: 200},
+        //        zoom: 1
+        //    });
+
+        //var pano = document.getElementById("pano");
+        //pano.setAttribute("style", "height:475px;");
+        //var coor = new google.maps.LatLng(51.4921451, -0.1929781);
+        //var view = {position: coor,pov: {heading: 279,pitch: -5,}};
+        //new google.maps.StreetViewPanorama(document.getElementById("pano"), view);
+        //setTimeout(function () {
+        //    var pano = document.getElementById("pano");
+        //    pano.setAttribute("style", "height:475px;");
+        //    var coor = new google.maps.LatLng(51.4921451, -0.1929781);
+        //    var view = {position: coor,pov: {heading: 279,pitch: -5,}};
+        //    new google.maps.StreetViewPanorama(document.getElementById("pano"), view);
+        //}, 10000);
+    }
+
+    var panorama;
+    function initialize() {
+        //var pid = 'c9UMhWP_MWm9U0L48xEjYw';
+        var tour = @Html.Raw(Json.Encode(ViewBag.coords));
+        var start=-1;
+        var stops = tour.Length;
+        //panorama = new google.maps.StreetViewPanorama(
+        //    document.getElementById('pano'),
+        //    {
+        //        pano:pid,
+        //        pov: {heading: 246, pitch: -5},
+        //        zoom: 1
+        //    });
+        //for (var stop = 0; stop < tour.length; stop++) {
+        //    setTimeout(function () {
+        //        panorama = new google.maps.StreetViewPanorama(
+        //        document.getElementById('pano'),
+        //        {
+        //            pano:tour[stop].PanoramaID,
+        //            pov: {heading: tour[stop].Heading, pitch: tour[stop].Pitch},
+        //            zoom: 1
+        //        });
+        //    }, 5000);
+        //}
+        (function next() {
+            if (start++>=stops) {return;}
+            setTimeout(function () {
+                panorama = new google.maps.StreetViewPanorama(
+                document.getElementById('pano'),
+                {
+                    pano:tour[start].PanoramaID,
+                    pov: {heading: tour[start].Heading, pitch: tour[start].Pitch},
+                    zoom: 1,
+                    fov:120
+                });
+                next();
+            }, 5000);
+        })();
     }
 
     $(document).ready(loadded);

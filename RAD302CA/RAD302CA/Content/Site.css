@@ -16,8 +16,12 @@ textarea {
     max-width: 280px;
 }
 
-/*#pano{
+#pano{
     margin:auto;
-    width:1200px;
+    width:1100px;
     height:600px;
+}
+
+/*#pano{
+    height:100%;
 }*/
