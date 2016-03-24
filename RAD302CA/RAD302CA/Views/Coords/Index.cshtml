@@ -5,105 +5,33 @@
 }
 
 <h2>Index</h2>
+<div class="col-xs-12 col-sm-12 col-lg-12 progress-container">
+    Loading
+    <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-info" style="width:0%">
+        </div>
+    </div>
+</div>
 
 <div id="pano">
 
 </div>
 
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Latitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Longitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Heading)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pitch)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Latitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Longitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Heading)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pitch)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>*@
-
-
 <script>
-    function loadded() {
-        @*var test = @Html.Raw(Json.Encode(ViewBag.coords));*@
-        //alert(test);
-
-        //var pano;
-        //pano = new google.maps.StreetViewPanorama(
-        //    document.getElementById('pano'),
-        //    {
-        //        position: {lat: 51.4921451, lng: -0.1929781},
-        //        pov: {heading: 279, pitch: 200},
-        //        zoom: 1
-        //    });
-
-        //var pano = document.getElementById("pano");
-        //pano.setAttribute("style", "height:475px;");
-        //var coor = new google.maps.LatLng(51.4921451, -0.1929781);
-        //var view = {position: coor,pov: {heading: 279,pitch: -5,}};
-        //new google.maps.StreetViewPanorama(document.getElementById("pano"), view);
-        //setTimeout(function () {
-        //    var pano = document.getElementById("pano");
-        //    pano.setAttribute("style", "height:475px;");
-        //    var coor = new google.maps.LatLng(51.4921451, -0.1929781);
-        //    var view = {position: coor,pov: {heading: 279,pitch: -5,}};
-        //    new google.maps.StreetViewPanorama(document.getElementById("pano"), view);
-        //}, 10000);
-    }
-
-    var panorama;
+    $(".progress-bar").animate({
+        width:"100%"
+    }, 5000);
+    setTimeout(function () {
+        $(".progress-container").remove();
+    },5000);
+    
     function initialize() {
-        //var pid = 'c9UMhWP_MWm9U0L48xEjYw';
+        var panorama;
+
         var tour = @Html.Raw(Json.Encode(ViewBag.coords));
         var start=-1;
         var stops = tour.Length;
-        //panorama = new google.maps.StreetViewPanorama(
-        //    document.getElementById('pano'),
-        //    {
-        //        pano:pid,
-        //        pov: {heading: 246, pitch: -5},
-        //        zoom: 1
-        //    });
-        //for (var stop = 0; stop < tour.length; stop++) {
-        //    setTimeout(function () {
-        //        panorama = new google.maps.StreetViewPanorama(
-        //        document.getElementById('pano'),
-        //        {
-        //            pano:tour[stop].PanoramaID,
-        //            pov: {heading: tour[stop].Heading, pitch: tour[stop].Pitch},
-        //            zoom: 1
-        //        });
-        //    }, 5000);
-        //}
+
         (function next() {
             if (start++>=stops) {return;}
             setTimeout(function () {
@@ -113,13 +41,17 @@
                     pano:tour[start].PanoramaID,
                     pov: {heading: tour[start].Heading, pitch: tour[start].Pitch},
                     zoom: 1,
-                    fov:120
+                    fov:120,
+                    addressControl:false,
+                    linksControl: false,
+                    panControl: false,
+                    enableCloseButton: false,
+                    zoomControl: false,
+                    fullscreenControl: false
                 });
                 next();
             }, 5000);
         })();
     }
-
-    $(document).ready(loadded);
 </script>
 

@@ -16,46 +16,47 @@ namespace RAD302CA.Migrations
 
         protected override void Seed(RAD302CA.Models.CoordsContext context)
         {
-            //Old seeding data before change from lat/Long to PanoramaID
 
-            //List<Coord> coords = new List<Coord>()
-            //{
-            //    new Coord() {Latitude=51.4921374,Longitude=-0.1928784,Heading=290,Pitch=75,LocationID=1 },
-            //    new Coord() {Latitude=51.4921451,Longitude=-0.1929781,Heading=279,Pitch=-5,LocationID=1 },
-            //    new Coord() {Latitude=51.4921453,Longitude=-0.1929803,Heading=281,Pitch=66,LocationID=1 },
-            //    new Coord() {Latitude=51.4921467,Longitude=-0.1929822,Heading=161,Pitch=66,LocationID=1 },
-            //    new Coord() {Latitude=51.4921451,Longitude=-0.1929834,Heading=72,Pitch=66,LocationID=1 },
-            //    new Coord() {Latitude=51.4921445,Longitude=-0.1929815,Heading=341,Pitch=66,LocationID=1 },
-            //    new Coord() {Latitude=51.4921452,Longitude=-0.1929791,Heading=98,Pitch=70,LocationID=1 },
-            //    new Coord() {Latitude=51.4921451,Longitude=-0.1929781,Heading=97,Pitch=84,LocationID=1 },
-            //    new Coord() {Latitude=51.4921374,Longitude=-0.1928784,Heading=129,Pitch=77,LocationID=1 }
-            //};
-            //coords.ForEach(co => context.Coords.Add(co));
-            //context.SaveChanges();
+            List<Coord> coordsT = new List<Coord>()
+            {
+                new Coord() {PanoramaID="c9UMhWP_MWm9U0L48xEjYw",Heading=290,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="9SNlG6n9D5kAAAQIt-IsBw",Heading=279,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="fOcISmnqyyEAAAQIt-ILgA",Heading=281,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="HqJR5XkQXDwAAAQIt-JP4Q",Heading=161,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="2udcx9piYRgAAAQIt-IsEg",Heading=100,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="58A3ZqZ9c4cAAAQIt-ILhg",Heading=40,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="QMcl48eHg8sAAAQIt-IsCw",Heading=341,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="9SNlG6n9D5kAAAQIt-IsBw",Heading=97,Pitch=-5,LocationID=1 },
+                new Coord() {PanoramaID="c9UMhWP_MWm9U0L48xEjYw",Heading=115,Pitch=-5,LocationID=1 }
+            };
+            coordsT.ForEach(co => context.Coords.Add(co));
+            context.SaveChanges();
 
-            //List<Coord> coords = new List<Coord>()
-            //{
-            //    new Coord() {Latitude=48.8866319,Longitude=2.3411492,Heading=246,Pitch=74,LocationID=2 },
-            //    new Coord() {Latitude=48.8865259,Longitude=2.3410135,Heading=242,Pitch=74,LocationID=2 },
-            //    new Coord() {Latitude=48.8863800,Longitude=2.3407577,Heading=322,Pitch=78,LocationID=2 },
-            //    new Coord() {Latitude=48.8864053,Longitude=2.3405982,Heading=9,Pitch=83,LocationID=2 },
-            //    new Coord() {Latitude=48.8865051,Longitude=2.3406075,Heading=29,Pitch=80,LocationID=2 },
-            //    new Coord() {Latitude=48.8866622,Longitude=2.3406665,Heading=46,Pitch=79,LocationID=2 },
-            //    new Coord() {Latitude=48.8867122,Longitude=2.3406994,Heading=108,Pitch=79,LocationID=2 },
-            //    new Coord() {Latitude=48.8866901,Longitude=2.3408178,Heading=108,Pitch=81,LocationID=2 },
-            //    new Coord() {Latitude=48.8866319,Longitude=2.3411492,Heading=74,Pitch=100,LocationID=2 }
-            //};
-            //coords.ForEach(co => context.Coords.Add(co));
-            //context.SaveChanges();
+            List<Coord> coordsP = new List<Coord>()
+            {
+                new Coord() {PanoramaID="sHm0rJbyg6PvoqG0UXQL6A",Heading=246,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="-mPWY5P2AXOKXTz66sLGZw",Heading=242,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="SsRljZgZSOIKxxZFhBVjeA",Heading=232,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="_j3cinVyU7jfkaqVCJi89w",Heading=210,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="U4ZuCo5Upd2_MblrcckYSw",Heading=299,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="7txwNXYY35JYYxBG0t82cQ",Heading=326,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="e__2nzqG5DKko5g2W2S3rQ",Heading=18,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="iixJzQHfP2JCsisM-y1wdA",Heading=18,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="yWAHMYdbuBCWD10fB2YQdg",Heading=74,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="CSzr83kjxn9_SqdQweSYUg",Heading=108,Pitch=-5,LocationID=2 },
+                new Coord() {PanoramaID="sHm0rJbyg6PvoqG0UXQL6A",Heading=74,Pitch=-5,LocationID=2 }
+            };
+            coordsP.ForEach(co => context.Coords.Add(co));
+            context.SaveChanges();
 
-            //List<Location> locs = new List<Location>()
-            //{
-            //    new Location() {Name="Tardis" },
-            //    new Location() {Name="Place du Tertre" }
-            //};
+            List<Location> locs = new List<Location>()
+            {
+                new Location() {Name="Tardis" },
+                new Location() {Name="Place du Tertre" }
+            };
 
-            //locs.ForEach(l => context.Locations.Add(l));
-            //context.SaveChanges();
+            locs.ForEach(l => context.Locations.Add(l));
+            context.SaveChanges();
         }
     }
 }
