@@ -26,3 +26,9 @@ textarea {
     -webkit-transition:none !important;
     transition:none !important;
 }
+
+#caro{
+    margin:auto;
+    width:622px;
+    height:350px;
+}
